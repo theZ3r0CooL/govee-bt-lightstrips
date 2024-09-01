@@ -1,5 +1,9 @@
-.idea
+# local project env files and directories
 .venv
-node_modules
+coverage
 dist
+node_modules
+
+# IDE files and directories
+.idea
 .vscode
