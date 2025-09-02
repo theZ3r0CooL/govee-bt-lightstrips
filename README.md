@@ -1,4 +1,5 @@
 # govee-bt-lightstrips
+
 [![npm version](https://badge.fury.io/js/govee-bt-lightstrips.svg)](https://badge.fury.io/js/govee-bt-lightstrips)
 
 Simple Node module used to control Govee Light Strips over BLE.
@@ -10,10 +11,11 @@ Simple Node module used to control Govee Light Strips over BLE.
 ## Supported Models
 
 Currently supported and tested models are:
+
 - `H6182` RGB Bluetooth + WiFi TV Backlight LED Strip
 - `H6160` RGB Bluetooth + WiFi Waterproof 16.4 ft. LED Strip
 
-Module should probably work with other Govee lightstrip and light bulb models supporting bluetooth. 
+Module should probably work with other Govee lightstrip and light bulb models supporting bluetooth.
 Add model strings in the `MODELS` array in the [Constants](src/constants.ts) file.
 
 ## Controls
@@ -41,7 +43,7 @@ The module can be used to control:
   - Retrieves currently connected list of LED strips
 - `setColorOfStrip(ledStrip: GoveeLightStrip, newColor: Color, isWhite: boolean): GoveeLightStrip | undefined`
   - Set the color of the given LED strip to the given color. If isWhite is true, will set to the given white color shade.
-  Returns the changed LED strip to keep track of the changes.
+    Returns the changed LED strip to keep track of the changes.
 - `setBrightnessOfStrip(ledStrip: GoveeLightStrip, newBrightness: number): GoveeLightStrip | undefined`
   - Set the brightness of the given LED Strip to given brightness. Returns the changed LED strip to keep track of the changes.
 - `setPowerOfStrip(ledStrip: GoveeLightStrip, power: boolean):  GoveeLightStrip | undefined`
@@ -59,12 +61,12 @@ The module can be used to control:
 
 ```typescript
 
-registerDiscoveryCallback(async (ledStrip) => 
+registerDiscoveryCallback(async (ledStrip) =>
 {
   setPowerOfStrip(ledStrip, true); // turn on
   setBrightnessOfStrip(ledStrip, 0xFF); // max brightness
   setColorOfStrip(ledStrip, hexToColor("ff0000"), false); // color to red
-  
+
   // Save instance of ledStrip for further use
   .....
 }
@@ -83,6 +85,7 @@ startDiscovery()
 ### GoveeLEDStrip
 
 Stores a Govee LED strip and it's details
+
 - `uuid: string` UUID of the device
 - `name: string` Bluetooth advertised name of the device
 - `model: string` Model string of the device
@@ -95,6 +98,7 @@ Stores a Govee LED strip and it's details
 ### Color
 
 Stores a color as the RGB values. Uses helper functions to convert to and from a hex string
+
 - `red: number`
 - `green: number`
 - `blue: number`
